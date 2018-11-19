@@ -76,9 +76,9 @@ func MakeLang(s string, lang string) (slug string) {
 	slug = strings.ToLower(slug)
 
 	// Process all remaining symbols
-	slug = regexpNonAuthorizedChars.ReplaceAllString(slug, "-")
-	slug = regexpMultipleDashes.ReplaceAllString(slug, "-")
-	slug = strings.Trim(slug, "-")
+	slug = regexpNonAuthorizedChars.ReplaceAllString(slug, "_")
+	slug = regexpMultipleDashes.ReplaceAllString(slug, "_")
+	slug = strings.Trim(slug, "_")
 
 	if MaxLength > 0 {
 		slug = smartTruncate(slug)
